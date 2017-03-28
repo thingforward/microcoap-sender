@@ -18,16 +18,20 @@ void setup() {
 
 coap_sender_struct_t	sender;
 
-const uint8_t	str_payl[] = "Some POST payload...";
-coap_content_type_t 	int_cf = COAP_CONTENTTYPE_APPLICATION_OCTECT_STREAM;
-
+/* intermedia buffer object to construct the uri */
 const uint8_t	str_uri[] = "advanced";
 coap_buffer_t	buf_uri = {
 	.p = str_uri, .len = sizeof(str_uri)-1
 };
+
+/* intermedia buffer struct to construct content type */
+coap_content_type_t 	int_cf = COAP_CONTENTTYPE_APPLICATION_OCTECT_STREAM;
 coap_buffer_t	buf_cf = {
 	.p = (const uint8_t*)&int_cf, .len = 1 
 };
+
+/* payload */
+const uint8_t	str_payl[] = "Some POST payload...";
 
 const char *p_server_ip = "172.20.10.6";
 
